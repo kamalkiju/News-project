@@ -1,0 +1,33 @@
+#Main container{
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+}
+
+body{
+    font-family: "Inter", sans-serif;
+    background-color: rgb(255, 255, 255)
+}
+
+.navbar{
+    width:100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+}
+
+.logo img
+{
+    width:auto;
+    height: 40px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #131313;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 15px;
+}

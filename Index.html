@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #maincontainer{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body{
+                font-family: "Inter", sans-serif;
+                background-color: rgb(255, 255, 255);
+                margin: 0;
+                padding-top: 60px;
+            }
+
+            .navbar{
+                position: fixed;
+                position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+            }
+            .navbar ul{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            list-style: none;
+            margin:0;
+        }
+        .navbar ul li a{
+            text-decoration: none;
+            color: #333;
+            font-weight: medium;
+            margin-right: 20px;
+        }
+
+        .navbar a:hover{
+            color: #ef4e37;
+        }
+
+        .logo img{
+            height: 40px;
+        }
+        
+        .search{
+            background: color #f2f2f2;
+            color:#b1adad;
+            border: 1px solid #e0dfdf;
+            border-radius: 30px;
+            padding: 10px 30px;
+            cursor: pointer;
+        }
+
+        .trending{
+            background-color:#ef4e371a;
+            height:50px;
+            display:flex;
+            align-items:center;
+            overflow:hidden;
+        }
+
+        .trendingcontent{
+            display:flex;
+            align-items:center;
+            gap: 20px;
+            padding: 0 50px;
+            overflow:hidden;
+        }
+
+        .trendingcontent a{
+            font-size: 16px;
+            font-weight: medium;
+            color:#131313;
+            text-decoration: none;
+        }
+
+        .trendingcontent a:hover{
+            color:#ef4e37;
+        }
+
+        .trendinglinks {
+            display: flex;
+            gap: 30px;
+            white-space: nowrap;
+            animation: trending-scroll 20s linear infinite;
+        }
+
+        .trendinglinks a {
+    color: #131313;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.trending-title {
+    color: #131313;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 30px 0 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+    background-color: #ef4e37;
+}
+
+@keyframes trending-scroll {
+
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+
+}
+
+        .banner{
+            background-color:#ef4e37;
+            height:400px;
+            display:flex;
+            align-items:center;
+            justify-content:left;
+            padding: 40px;
+            gap: 20px;
+        }
+
+        .banner img{
+            width: 80%;
+            height:350px;
+            object-fit:cover;
+            border-radius:10px;
+        }
+
+        .banner img:hover{
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .bannercontent{
+            color:#ffffff;
+            font-size: 30px;
+            text-align: left;
+            font-weight: semi-bold;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .bannercontent p{
+            font-size: 18px;
+            font-weight: medium;
+        }
+
+        .bannercontent h1{
+            font-size: 30px;
+            font-weight: semi-bold;
+            margin:0, 0,30px,0;
+        }
+
+       .BreakingNews{
+            color:#ffffff;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            margin-bottom: 45px;
+        }
+
+        .BreakingNews img{
+            width: 36px;
+            height: 36px;
+        }
+
+        .BreakingNews p{
+            font-size: 18px;
+            font-weight: medium;
+        }
+
+        .bannercontent p.author{
+            font-size: 14px;
+            font-weight: medium;
+        }
+
+        
+        .BreakingNews hr{
+            flex:1;
+            margin: 0 0 0 20px;
+            border: 0.5px solid #ffffff;
+        }
+
+
+        .article{
+            padding: 40px;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .article article{
+            display: flex;
+            align-items: left;
+            gap: 20px;
+        }
+
+        .articletop{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .articletop span{
+            font-size: 16px;
+            font-weight: medium;
+            padding: 10px;
+            background-color: #ef4e37;
+            border-radius: 5px;
+            color:#ffffff;
+        }
+
+        .latest-news {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    height: 750px;
+    overflow-y: auto;
+
+}
+
+.articleheading {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.articleheading h2 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.articletop p{
+    color: #7d7979;
+}
+
+.articleheaddesc h1{
+    margin: 0;
+    font-size: 32px;
+}
+
+.articleauthor{
+    display: flex;
+    align-items: center;
+    gap: 20px 40px;
+    border-top: 1px solid #e0dfdf;
+    border-bottom: 1px solid #e0dfdf;
+    margin-bottom: 32px;
+}
+
+.articleauthor img{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+}
+
+.authorimg{
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.newsimage img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.article quote{
+    margin-top: 20px;
+    width: 100%;
+padding: 22px 26px;
+border-left: 3px solid #EF4E37;
+background: #faf8f7;
+font-size: 20px;
+line-height: 3.4;
+color: #1f1d1c;
+}
+
+.top-stories{
+    width:100%;
+    text-align: left;
+}
+
+.top-stories h3{
+    font-size: 28px;
+    font-weight: semi-bold;
+    margin-bottom: 20px;
+}
+
+.story{
+     display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 0 20px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0dfdf;
+}
+
+.story:hover{
+    background-color: #eceaea;
+}
+
+.story a {
+    text-decoration: none;
+    color: #131313;
+}
+
+.story h4{
+    margin:auto;
+}
+
+.story p{
+    margin-top: 10px;
+}
+
+.story img {
+    width: 140px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.category{
+    background-color: #ef4e37;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: medium;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom:10px;
+}
+
+.storycontent {
+    display: flex;
+    flex-direction: column;
+}
+
+.subscribe{
+    background-color: #ef4e371a;
+    height:300px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding:50px;
+}
+
+.subscribe img{
+    align-items: center;
+}
+
+.form{
+    padding: 20px 40px;
+    border-radius: 10px;
+    border:none;
+}
+.subscribebtn{
+    padding: 20px 30px;;
+    color:#ffffff;
+     background-color: #131313;
+     border-radius: 10px;
+}
+
+.bottom{
+    background-color: #2c2c2c;
+    align-items: center;
+    height:100px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    padding-right: 50px;
+    padding-left: 50px;
+    color:#ffffff;
+    text-decoration: none;
+}
+        </style>
+    </head>
+    <title>news Website</title>
+     <Body>
+        <section id = "Main container">
+            <nav class = "navbar">
+                <ul>
+                <li><a href="#" class = "logo">
+                    <img src="https://images.firstpost.com/dlxczavtqcctuei/news18/static/images/fp/revamp_v1/firstpost_logo.svg" alt="logo">
+                </a></li>
+                <li><a href="#">National</a></li>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">Entertainment</a></li> 
+                <li><a href="#">Sports </a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">World</a></li>
+                <li><input class ="search" type="text" placeholder="Search"></li>
+            </ul>
+            </nav>
+
+            <section class=" trending">
+                <div class="trendingcontent">
+                    <div class="trendinglinks"
+                    <a href="#">Russia-Ukraine war</a>
+                    <a href="#">US delegation lands at Vnukovo shortly after 09:00 Moscow time</a>
+                    <a href="#">Kremlin confirms 72-hour halt to strikes on Kyiv</a>
+                    <a href="#">Zelenskyy: “We will judge the pause by what happens tonight”</a>
+                    <a href="#">Brics 2026</a>
+                    </div>
+                </div>
+            </section>
+
+           <section class=" banner">
+            
+            <div class="bannercontent">
+                <div class="BreakingNews">
+                    <img src="https://images.firstpost.com/dlxczavtqcctuei/news18/static/images/fp/revamp_v1/big-story.svg">
+                    <p>Breaking News</p>
+                    <hr>
+                </div>
+<h1>Putin orders 72-hour pause in strikes on Kyiv as Trump envoys arrive in Moscow for fresh push to end Ukraine war</h1>
+<p>Steve Witkoff and Jared Kushner arrived in Moscow for talks with Russian officials before a planned Kyiv visit, as Washington seeks to revive stalled..</p>
+<p class="author">By Simran | world news | 2mins read | September 5, 2026 7:16 PM IST</p>
+            </div>
+            <img src="Images/Representational-image-2026-09-05T191603.869-2026-09-dc0d194200e1d2c318111dc4341da448-1200x675.avif" alt="new news">
+           </section>
+
+           <Section class=" article">
+            <article class="latest-news">
+
+                <div class="articleheading">
+            <img src="https://www.firstpost.com/imgrvmp/globe.svg" alt="globe">
+            <h2>Latest News</h2>
+        </div>
+                <div class ="articletop">
+                    <span>World</span>
+                    <p>Russia · Ukraine</p>
+                </div>
+
+                <div class="articleheaddesc">
+                    <h1>Putin orders 72-hour pause in strikes on Kyiv as Trump envoys arrive in Moscow for fresh push to end Ukraine war</h1>
+                    <p>The halt, announced hours before the American delegation landed at Vnukovo, is the first pause in long-range attacks on the Ukrainian capital since the spring. Kyiv says it is waiting to see whether the order holds through the night.</p>
+                </div>
+
+                <div class="articleauthor">
+                    <div class="authorimg">
+                        <img src="https://images.firstpost.com/dlxczavtqcctuei/news18/static/images/fp/revamp_v1/author.svg" alt="author">
+                        <p>Simran</p>
+                        <p>|</p>
+                        <p>September 6, 2026 · 08:42 IST</p>
+                        <p>|</p>
+                        <p>2 mins read</p>
+                        </div>
+                </div>
+                <div class ="newsimage" ><img src="images/ANI-20260905154535.jpg" alt="Russian President Vladimir Putin sits in a formal government setting during a serious-looking public appearance, with official furnishings and a muted background behind him">
+                     <p> President Vladimir Putin has ordered a 72-hour pause in long-range strikes on Kyiv, the Kremlin said on Saturday, hours before two envoys sent by President Donald Trump arrived in Moscow for a fresh round of talks aimed at ending the war in Ukraine. The order covers missile and drone attacks on the capital and its surrounding region, and takes effect from midnight local time.</p>
+                <p>Kremlin spokesman Dmitry Peskov described the measure as a gesture made “in the interest of the negotiations” and declined to say whether it would be extended. Ukrainian officials responded cautiously, noting that previous announced pauses had not covered front-line areas in the east, where fighting continued through the morning.</p>
+                <quote>“We will judge the pause by what happens tonight, not by what was said this morning.”</quote>
+                 <p> President Vladimir Putin has ordered a 72-hour pause in long-range strikes on Kyiv, the Kremlin said on Saturday, hours before two envoys sent by President Donald Trump arrived in Moscow for a fresh round of talks aimed at ending the war in Ukraine. The order covers missile and drone attacks on the capital and its surrounding region, and takes effect from midnight local time.</p>
+                </article></div>
+               
+                <aside class="top-stories">
+                    <h3>Top Stories</h3>
+                    
+                        <div class="story">
+                            <img src="Images/0682d4fa-7bcf-4297-815b-dd09a5c5ce5b-1-2026-09-44abc24f5e653d264d7cb012ee58e902.avif">
+                            <div class="storycontent">
+                          <a href="#">
+                              <span class="category">World</span>
+                              <h4>Russia-Ukraine war: Latest updates</h4>
+                              <p>2 hours ago</p>
+                              </a>
+                              </div>
+                        </div>
+
+                        <div class="story">
+                            <img src="Images/Untitled-design-93-2026-09-b1489c1b3fc3b45bc51976454d116c55-1200x675.webp">
+                            <div class="storycontent">
+                            <a href="#">
+                                <span class="category">World</span>
+                                <h4>US delegation lands at Vnukovo shortly after 09:00 Moscow time</h4>
+                                <p>1 hour ago</p>
+                            </a>
+                            </div>
+                        </div>
+                        <div class="story">
+                            <img src="Images/0682d4fa-7bcf-4297-815b-dd09a5c5ce5b-1-2026-09-44abc24f5e653d264d7cb012ee58e902.avif">
+                            <div class="storycontent">
+                            <a href="#">
+                                <span class="category">Sports</span>
+                                <h4>Kremlin confirms 72-hour halt to strikes on Kyiv</h4>
+                                <p>30 minutes ago</p>
+                            </a>
+                            </div>
+                        </div>
+                        <div class="story">
+                            <img src="Images/5000-2-1-2026-09-aa30b2dd3890334493772a224dab7df3-1200x675.avif">
+                            <div class="storycontent">
+                            <a href="#">
+                                <span class="category">Tech</span>
+                                <h4>Zelenskyy: “We will judge the pause by what happens tonight”</h4>
+                                <p>15 minutes ago</p>
+                            </a>
+                            </div>
+                        </div>
+                        <div class="story">
+                            <img src="Images/BeFunky-collage-2026-08-15T091448.540-2026-08-b9f201409fd03aacddd76d791d124501.avif">
+
+                            <div class="storycontent">
+                            <a href="#">
+                                <span class="category">India</span>
+                                <h4>Brics 2026: What to expect from the summit</h4>
+                                <p>1 hour ago</p>
+                            </a>
+                            </div>
+                        </div>
+                </aside>
+           </Section>
+
+           <section class="subscribe">
+            <img src="Images/boy.svg">
+             <div subscribecontent>
+                <h1>Handpicked stories, in your inbox</h1>
+                <p>
+Global stories. Indian perspective. Zero noise.</p>
+<input class="form" type="text" placeholder="enter email address">
+<button class="subscribebtn"> subscribe</button>
+             </div>
+           </section>
+           <footer class="bottom">
+<p>© 2026 Firstpost. All Rights Reserved.</p>
+           </footer>
+
+        </section>
+
+    </Body>
+
+</html>
